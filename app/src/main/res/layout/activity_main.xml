@@ -36,6 +36,14 @@
         android:layout_toRightOf="@+id/button"
         android:onClick="backstart"
         android:text="Red"/>
+    <Button
+        android:id="@+id/button22"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/button2"
+        android:layout_toRightOf="@+id/button2"
+        android:onClick="changetext"
+        android:text="chtext"/>
 
 
     <com.example.liangmutian.graduallibrary.GradualImageView

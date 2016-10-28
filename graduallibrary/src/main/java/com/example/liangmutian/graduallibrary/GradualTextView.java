@@ -20,7 +20,7 @@ public class GradualTextView extends FrameLayout {
     private int TextColor1 = Color.BLACK;
     private int TextColor2 = Color.BLUE;
     private String text = "";
-    private boolean Start=true;
+    private boolean Start = true;
 
     public GradualTextView(Context context) {
         super(context);
@@ -45,8 +45,9 @@ public class GradualTextView extends FrameLayout {
         TextColor2 = color2;
         reset();
     }
+
     public void setText(String text) {
-        this.text=text;
+        this.text = text;
         reset();
     }
 
@@ -56,17 +57,19 @@ public class GradualTextView extends FrameLayout {
         textView2.setText(text);
         textView1.setText(text);
     }
-    public void startChange(final int TIME){
-        ObjectAnimator mObObjectAnimator=new ObjectAnimator();
-        mObObjectAnimator.ofFloat(textView2, "Alpha", 1.0F,0.0F).setDuration(TIME).start();
+
+    public void startChange(final int TIME) {
+        ObjectAnimator mObObjectAnimator = new ObjectAnimator();
+        mObObjectAnimator.ofFloat(textView2, "Alpha", 1.0F, 0.0F).setDuration(TIME).start();
         mObObjectAnimator.cancel();
 
 
     }
-    public void backChange(final int TIME){
 
-        ObjectAnimator mObObjectAnimator=new ObjectAnimator();
-        mObObjectAnimator.ofFloat(textView2, "Alpha", 0.0F,1.0F).setDuration(TIME).start();
+    public void backChange(final int TIME) {
+
+        ObjectAnimator mObObjectAnimator = new ObjectAnimator();
+        mObObjectAnimator.ofFloat(textView2, "Alpha", 0.0F, 1.0F).setDuration(TIME).start();
         mObObjectAnimator.cancel();
 
 
@@ -77,6 +80,21 @@ public class GradualTextView extends FrameLayout {
         LayoutInflater.from(mContext).inflate(R.layout.main, this);
         textView1 = (TextView) findViewById(R.id.textView1);
         textView2 = (TextView) findViewById(R.id.textView2);
+    }
+
+    public void twoTextChange(String text1, String text2, int color1, int color2, final int TIME) {
+        setTextColor(color1, color2);
+        setText(text1);
+
+        ObjectAnimator mObObjectAnimator = new ObjectAnimator();
+        mObObjectAnimator.ofFloat(textView2, "Alpha", 0.0F, 1.0F).setDuration(TIME).start();
+        mObObjectAnimator.cancel();
+        textView2.setText(text2);
+        ObjectAnimator mObObjectAnimator1 = new ObjectAnimator();
+        mObObjectAnimator1.ofFloat(textView1, "Alpha", 1.0F, 0.0F).setDuration(TIME).start();
+        mObObjectAnimator1.cancel();
+
+
     }
 
 

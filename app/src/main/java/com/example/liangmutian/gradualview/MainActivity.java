@@ -20,6 +20,7 @@ public class MainActivity extends AppCompatActivity {
         mGradualView=(GradualTextView)findViewById(R.id.gv1);
         mGradualView.setTextColor(Color.YELLOW,Color.RED);
         mGradualView.setText("Good Good");
+
         mGradualView2.setImgResourse(R.mipmap.q1,R.mipmap.q2);
 
 
@@ -33,6 +34,12 @@ public class MainActivity extends AppCompatActivity {
     public void backstart(View v){
 
         mGradualView.backChange(1000);
+
+
+    }
+    public void changetext(View v){
+
+        mGradualView.twoTextChange("Good Good","Hello Tom",Color.YELLOW,Color.RED,1000);
 
 
     }
